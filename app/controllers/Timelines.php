@@ -1,5 +1,5 @@
 <?php 
-class TL extends Controller {
+class Timelines extends Controller {
     public function __construct()
     {
         if(!isLoggedIn()) {
@@ -10,7 +10,7 @@ class TL extends Controller {
 
     public function index() {
         // load user's TL
-        
+    
         $this->loadView("timeline");
     }
 }
