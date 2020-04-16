@@ -9,6 +9,6 @@ foreach($db_config as $key=>$value){
 
 // app root
 define("APPROOT", dirname(dirname(__FILE__)));
-define("URLROOT", "http://localhost/tweety");
+define("URLROOT", "http://localhost:8080/tweety");
 define("SITENAME", "Tweety");
 ?>

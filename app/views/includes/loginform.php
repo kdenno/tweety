@@ -1,11 +1,13 @@
 <div class="login-div">
-<form method="post"> 
+<form action="<?php echo URLROOT; ?>/users/login" method="post"> 
 	<ul>
 		<li>
 		  <input type="text" name="email" placeholder="Please enter your Email here"/>
+		  <?php if($data && $data['email_err']){ ?><div class="err"><?php echo $data['email_err']; ?> </div> <?php }?>
 		</li>
 		<li>
 		  <input type="password" name="password" placeholder="password"/><input type="submit" name="login" value="Log in"/>
+		  <?php if($data && $data['password_err']){ ?><div class="err"><?php echo $data['password_err']; ?> </div> <?php }?>
 		</li>
 		<li>
 		  <input type="checkbox" Value="Remember me">Remember me
