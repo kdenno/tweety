@@ -8,7 +8,7 @@ require_once "helpers/redirect.php";
 
  // Auto Load Libraries
  spl_autoload_register(function($className){
-    require_once 'libraries/'.$className.'.php';
+    require_once APPROOT.'/libraries/'.$className.'.php';
    })
 
 ?>

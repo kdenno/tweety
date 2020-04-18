@@ -1,7 +1,7 @@
 <?php
 class Users extends Controller
 {
-    private $userModel;
+    public $userModel;
     public function __construct()
     {
         // get access to model
@@ -141,11 +141,15 @@ class Users extends Controller
         }
     }
 
-    public function profile($username = null) {
+    public function profile($username = null, $page="profile") {
+        if(!isLoggedIn()){
+            redirect("index");
+
+        }
         if($username) {
             $userData = $this->userModel->verifyUsername($username[0]);
             $data=["userdata" => $userData];
-            $this->loadView("profile", $data);
+            $this->loadView($page, $data);
 
         }else{
             // display current user's profile
@@ -154,6 +158,10 @@ class Users extends Controller
 
     }
     public function following($username = null) {
+        if(!isLoggedIn()){
+            redirect("index");
+
+        }
         if($username) {
             $userData = $this->userModel->verifyUsername($username[0]);
             $data=["userdata" => $userData];
@@ -167,6 +175,10 @@ class Users extends Controller
     }
 
     public function followers($username = null) {
+        if(!isLoggedIn()){
+            redirect("index");
+
+        }
         if($username) {
             $userData = $this->userModel->verifyUsername($username[0]);
             $data=["userdata" => $userData];

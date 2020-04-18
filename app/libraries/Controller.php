@@ -9,15 +9,15 @@ class Controller
   public function model($model)
   {
     // require model file
-    require '../app/models/' . $model . '.php';
+    require APPROOT.'/models/' . $model . '.php';
     return new $model();
   }
 
   public function loadView($view, $data = [])
   {
     // check for file 
-    if (file_exists('../app/views/' . $view . '.php')) {
-      require_once('../app/views/' . $view . '.php');
+    if (file_exists(APPROOT.'/views/' . $view . '.php')) {
+      require_once(APPROOT.'/views/' . $view . '.php');
     } else {
       die('View does not exist');
     }
