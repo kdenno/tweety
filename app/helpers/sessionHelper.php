@@ -16,4 +16,7 @@ function destroySession($data) {
 function isLoggedIn() {
     return $_SESSION['user_id'];
 }
+function getUserIdFromSession() {
+    return $_SESSION['user_id'];
+}
 ?>
