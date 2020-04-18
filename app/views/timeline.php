@@ -32,7 +32,7 @@ getHeader();
 				<div class="drop-wrap">
 					<div class="drop-inner">
 						<ul>
-							<li><a href="PROFILE-LINK>"><?php echo $data['userdata']->username;?></a></li>
+							<li><a href="P<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>"><?php echo $data['userdata']->username;?></a></li>
 							<li><a href="settings/account">Settings</a></li>
 							<li><a href="<?php echo URLROOT;?>/users/logout">Log out</a></li>
 						</ul>
@@ -70,8 +70,8 @@ getHeader();
 					</div><!--  in b box end-->
 					<div class="info-body-name">
 						<div class="in-b-name">
-							<div><a href="PROFILE-LINK"><?php echo $data['userdata']->screenName; ?></a></div>
-							<span><small><a href="PROFILE-LINK">@<?php echo $data['userdata']->username;?></a></small></span>
+							<div><a href="<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>"><?php echo $data['userdata']->screenName; ?></a></div>
+							<span><small><a href="P<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>">@<?php echo $data['userdata']->username;?></a></small></span>
 						</div><!-- in b name end-->
 					</div><!-- info body name end-->
 				</div><!-- info in body end-->

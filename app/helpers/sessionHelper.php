@@ -7,11 +7,9 @@ function createSession($data) {
     }
    
 }
-function destroySession($data) {
-    foreach($data as $key => $value) {
-        unset($_SESSION[$key]);
-    }
-  
+function destroySession() {
+        session_destroy(); 
+        return true;
 }
 function isLoggedIn() {
     return $_SESSION['user_id'];

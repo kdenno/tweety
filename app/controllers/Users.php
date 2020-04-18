@@ -141,15 +141,47 @@ class Users extends Controller
         }
     }
 
-    public function logout($user)
-    {
-        $data = [
-            "user_id" => $user->id,
-            "username" => $user->username,
-            "email" => $user->email
-        ];
+    public function profile($username = null) {
+        if($username) {
+            $userData = $this->userModel->verifyUsername($username[0]);
+            $data=["userdata" => $userData];
+            $this->loadView("profile", $data);
 
-        destroySession($data);
+        }else{
+            // display current user's profile
+
+        }
+
+    }
+    public function following($username = null) {
+        if($username) {
+            $userData = $this->userModel->verifyUsername($username[0]);
+            $data=["userdata" => $userData];
+            $this->loadView("following", $data);
+
+        }else{
+            // display current user's profile
+
+        }
+
+    }
+
+    public function followers($username = null) {
+        if($username) {
+            $userData = $this->userModel->verifyUsername($username[0]);
+            $data=["userdata" => $userData];
+            $this->loadView("followers", $data);
+
+        }else{
+            // display current user's profile
+
+        }
+
+    }
+
+    public function logout()
+    {
+        destroySession();
         redirect("index");
     }
     public function LoginUser($user, $mode = 'login')
