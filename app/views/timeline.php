@@ -12,7 +12,7 @@ getHeader();
 		
 		<div class="nav-left">
 			<ul>
-				<li><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+				<li><a href="<?php echo URLROOT.'/timelines'; ?>"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
 				<li><a href="i/notifications"><i class="fa fa-bell" aria-hidden="true"></i>Notification</a></li>
 				<li><i class="fa fa-envelope" aria-hidden="true"></i>Messages</li>
 			</ul>
@@ -32,7 +32,7 @@ getHeader();
 				<div class="drop-wrap">
 					<div class="drop-inner">
 						<ul>
-							<li><a href="P<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>"><?php echo $data['userdata']->username;?></a></li>
+							<li><a href="<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>"><?php echo $data['userdata']->username;?></a></li>
 							<li><a href="settings/account">Settings</a></li>
 							<li><a href="<?php echo URLROOT;?>/users/logout">Log out</a></li>
 						</ul>
@@ -71,7 +71,7 @@ getHeader();
 					<div class="info-body-name">
 						<div class="in-b-name">
 							<div><a href="<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>"><?php echo $data['userdata']->screenName; ?></a></div>
-							<span><small><a href="P<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>">@<?php echo $data['userdata']->username;?></a></small></span>
+							<span><small><a href="<?php echo URLROOT.'/users/profile/'.$data['userdata']->username; ?>">@<?php echo $data['userdata']->username;?></a></small></span>
 						</div><!-- in b name end-->
 					</div><!-- info body name end-->
 				</div><!-- info in body end-->

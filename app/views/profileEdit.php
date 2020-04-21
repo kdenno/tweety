@@ -10,7 +10,7 @@
 	<div class="nav">
 		<div class="nav-left">
 			<ul>
-				<li><a href="home.php"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+				<li><a href="<?php echo URLROOT.'/timelines'?>"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
 				<li><a href="<?php echo URLROOT;?>i/notifications"><i class="fa fa-bell" aria-hidden="true"></i>Notifications<span id="notificaiton"></span></a></li>
 				<li id="messagePopup"><i class="fa fa-envelope" aria-hidden="true"></i>Messages<span id="messages"></span></li>
 
@@ -28,7 +28,7 @@
 				<div class="drop-wrap">
 					<div class="drop-inner">
 						<ul>
-							<li><a href="<?php echo $data['userdata']->username;?>"><?php echo $data['userdata']->username;?></a></li>
+							<li><a href="<?php echo URLROOT;?>/users/profile/<?php echo $data['userdata']->username;?>"><?php echo $data['userdata']->username;?></a></li>
 							<li><a href="settings/account">Settings</a></li>
 							<li><a href="includes/logout.php">Log out</a></li>
 						</ul>
@@ -59,12 +59,12 @@
 					<i class="fa fa-camera" aria-hidden="true"></i>
 				</label>
 				<span class="span-text1">
-					Change your profile photo
+					Change your profile cover
 				</span>
 				<input id="cover-upload-btn" type="checkbox"/>
 				<div class="img-upload-menu1">
 					<span class="img-upload-arrow"></span>
-					<form method="post" enctype="multipart/form-data">
+					<form method="post" action="<?php echo URLROOT; ?>/profiles/editProfileImages" enctype="multipart/form-data">
 						<ul>
 							<li>
 								<label for="file-up">
@@ -163,7 +163,7 @@
 				<input id="img-upload-btn" type="checkbox"/>
 				<div class="img-upload-menu">
 				 <span class="img-upload-arrow"></span>
-					<form method="post" enctype="multipart/form-data">
+					<form method="post" action="<?php echo URLROOT?>/profiles/editProfileImages" enctype="multipart/form-data">
 						<ul>
 							<li>
 								<label for="profileImage">
@@ -186,7 +186,7 @@
 			</div>
 		</div>
 
-			    <form id="editForm" method="post" enctype="multipart/Form-data">	
+			    <form id="editForm" action="<?php echo URLROOT?>/profiles/editProfile" method="post" enctype="multipart/Form-data">	
   				<?php // if(isset($imgError)){echo '<li>'.$imgError.'</li>';}?>
   				<div class="profile-name-wrap">
 					<div class="profile-name">
@@ -199,6 +199,7 @@
 				<div class="profile-bio-wrap">
 					<div class="profile-bio-inner">
 						<textarea class="status" name="bio"><?php echo $data['userdata']->bio;?></textarea>
+						<?php if(!empty($data['bio_err'])){?> <div class="err"><?php echo $data['bio_err']; ?></div>  <?php }?>
 						<div class="hash-box">
 					 		<ul>
 					 		</ul>
@@ -211,6 +212,7 @@
 							<li>
 								<div class="profile-ex-location">
 									<input id="cn" type="text" name="country" placeholder="Country" value="<?php echo $data['userdata']->country;?>" />
+									<?php if(!empty($data['country_err'])){?> <div class="err"><?php echo $data['country_err']; ?></div>  <?php }?>
 								</div>
 							</li>
 							<li>
@@ -218,10 +220,14 @@
 									<input type="text" name="website" placeholder="Website" value="<?php echo $data['userdata']->website;?>"/>
 								</div>
 							</li>
+					
 							<?php // if(isset($error)){echo '<li>'.$error.'</li>';}?>
+							<?php if(!empty($data['profileImg_err'])){?> <div class="err"><?php echo $data['profileImg_err']; ?></div>  <?php }?>
+							<?php if(!empty($data['coverImg_err'])){?> <div class="err"><?php echo $data['coverImg_err']; ?></div>  <?php }?>
  				</form>
 				<script type="text/javascript">
 					$('#save').click(function(){
+						console.log('button clicked');
 						$('#editForm').submit();
 					}); 
 				</script>

@@ -157,6 +157,10 @@ class Users extends Controller
         }
 
     }
+    public function getUserData($username) {
+       return $this->userModel->verifyUsername($username[0]);
+    }
+  
     public function following($username = null) {
         if(!isLoggedIn()){
             redirect("index");
