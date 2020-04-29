@@ -8,7 +8,7 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
     foreach ($result as $user) { ?>
 
         <li>
-            <div class="nav-right-down-inner">
+            <div class="nav-right-down-inner" style="padding: 3px 0 5px 0">
                 <a href="<?php echo URLROOT . '/users/profile/' . $user->username ?>">
                     <div class="nav-right-down-left">
                         <img src="<?php echo URLROOT; ?>/images/<?php echo $user->profileImage; ?>">
